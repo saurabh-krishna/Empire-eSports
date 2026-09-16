@@ -1,0 +1,472 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>VORTEX Esports Organization</title>
+<!-- Tailwind CSS CDN with forms and container queries plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Rajdhani & Chakra Petch for tactical/cyberpunk esports aesthetic -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,700&amp;family=Rajdhani:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              cyan: '#00F5D4',
+              darkCyan: '#00bfa5',
+              bgDark: '#080B10',
+              cardDark: '#0E131B',
+              cardBorder: '#1A2332',
+              panelBorder: '#233045',
+              subtext: '#8E9BAE',
+              accentGold: '#F3B83D'
+            }
+          },
+          fontFamily: {
+            tactical: ['"Chakra Petch"', 'sans-serif'],
+            condensed: ['"Rajdhani"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-layout">
+    /* Offset anchor scroll for fixed header */
+    html {
+      scroll-padding-top: 80px;
+    }
+    /* Scroll animation background canvas */
+    .scroll-canvas-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .scroll-canvas-container canvas {
+      max-width: 100vw;
+      max-height: 100vh;
+      object-fit: contain;
+      opacity: 0.35;
+    }
+    /* Subtle tactical grid background pattern */
+    .tactical-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    .tactical-bracket {
+      position: relative;
+    }
+    .tactical-bracket::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      width: 8px;
+      height: 8px;
+      border-top: 2px solid #00F5D4;
+      border-left: 2px solid #00F5D4;
+    }
+    .tactical-bracket::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      right: -2px;
+      width: 8px;
+      height: 8px;
+      border-bottom: 2px solid #00F5D4;
+      border-right: 2px solid #00F5D4;
+    }
+    .clip-corner {
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    }
+  </style>
+</head>
+<body class="bg-[#070A0F] text-slate-100 font-tactical antialiased tactical-grid selection:bg-brand-cyan selection:text-black min-h-screen">
+<!-- BEGIN: Scroll Animation Background -->
+<div class="scroll-canvas-container">
+  <canvas id="scroll-video-canvas"></canvas>
+</div>
+<!-- END: Scroll Animation Background -->
+<!-- BEGIN: MainHeader -->
+<header class="sticky top-0 z-50 bg-[#070A0F]/90 backdrop-blur-md border-b border-brand-cardBorder px-6 lg:px-12 py-3.5 flex items-center justify-between relative">
+<!-- Brand Crest Logo & Organization Title -->
+<div class="flex items-center gap-3">
+<div class="w-16 h-16 flex items-center justify-center overflow-hidden">
+<img alt="Empire Esports Logo" class="h-full w-auto object-contain" src="./logo.png">
+</div>
+<span class="font-bold text-2xl sm:text-3xl tracking-wider text-white font-condensed uppercase">EMPIRE ESPORTS</span>
+</div>
+
+
+</header>
+<!-- END: MainHeader -->
+<main class="relative z-10">
+<!-- BEGIN: HeroSection -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 pt-12 pb-16 lg:py-20 flex flex-col lg:flex-row items-center justify-between gap-12">
+<!-- Left Column: Hero Typography & Intro -->
+<div class="flex-1 space-y-6">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 bg-brand-cyan inline-block"></span>
+<span class="text-xs uppercase tracking-widest text-brand-cyan font-bold font-condensed">TACTICAL DIRECTIVE 01</span>
+</div>
+<h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight uppercase leading-[0.95] text-white">
+          RULE THE GAME <span class="text-brand-cyan block mt-1">OWN THE EMPIRE</span>
+</h1>
+<div class="space-y-1">
+<p class="text-xs font-bold tracking-widest text-brand-cyan uppercase">THE EMPIRE RISES.</p>
+<p class="text-sm text-brand-subtext font-normal max-w-md leading-relaxed">
+            Forged in elite combat rings, disciplined in high-stakes arenas. Dominate your bracket with peak tier competitive protocols.
+          </p>
+</div>
+<!-- Tactical Command Bar Placeholder -->
+
+</div>
+<!-- Right Column: Featured Captain Card -->
+<div class="w-full lg:w-[580px] flex-shrink-0">
+<div class="relative p-0 flex items-center justify-center"><style class="">@keyframes hero-float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-10px) rotate(0.8deg); } }</style>
+<!-- Live Combat Player Badge -->
+
+<!-- Player Image Container -->
+<div class="relative w-full h-[560px] flex items-center justify-center group/hero"><div class="absolute -inset-1 bg-gradient-to-r from-brand-cyan/20 via-transparent to-brand-cyan/20 blur-xl opacity-60 group-hover/hero:opacity-90 transition-opacity duration-700 pointer-events-none animate-pulse"></div><img alt="Vortex Captain Cypher" class="w-full h-full object-contain object-center transition-all duration-700 transform group-hover/hero:scale-105 drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)] [animation:hero-float_5s_ease-in-out_infinite]" style="filter: drop-shadow(rgba(0, 245, 212, 0.35) 0px 0px 25px);" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDN8Ip1WKBIq6ol8gKaApL-HHVxirH5-b4m3Z-aSifjJqfqrEnkzx30y0fyB7h_OV2rkqIKIXKSG5Y8ct36XkOFw7BbqAThi1abh0F3EamlduHwYnd2KfEg134RvJcktbl6PJ-mZfsoUYcNn3O_dyCjNpBpaHXkrgtUuLUIaF-miIrNViZ17xz_kC5rL7whvAtGivwwOiCrLm9-jeUKSc1kxCZSLK_uzEKjYYjb_xbowx7X5Un-c_Bp2ko0-0A5V3fTPFUACmDMltyZDbA"><div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30 pointer-events-none"></div></div>
+<!-- Player Combat Metadata Footer -->
+
+</div>
+</div>
+</section>
+<!-- END: HeroSection -->
+
+<!-- BEGIN: Promo Video Section -->
+<section class="w-full py-12 bg-[#070A0F]">
+  <div class="w-full overflow-hidden bg-black border-y border-brand-cardBorder/50">
+    <video class="w-full max-h-[70vh] object-cover" controls muted autoplay loop playsinline>
+      <source src="./promo_no_audio.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+<!-- END: Promo Video Section -->
+
+<!-- BEGIN: CabinetOfGlorySection -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 py-16 border-t border-brand-cardBorder/60" id="who-we-are">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+<div class="w-full">
+
+<h2 class="font-bold uppercase tracking-tight text-white text-5xl sm:text-6xl lg:text-7xl">WHO <span class="text-brand-cyan">WE ARE</span></h2><div class="mt-4 p-8 bg-brand-cardDark/40 border border-brand-cardBorder/50 rounded"><p class="text-2xl sm:text-3xl text-white font-bold font-condensed leading-relaxed tracking-wide max-w-5xl">We are a new-generation esports organization built by gamers with a passion for competitive gaming. Our goal is simple — create a platform where talented players can compete, grow, and make their mark in esports.<br></p></div>
+</div>
+
+</div>
+<!-- Trophy Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1 -->
+
+<!-- Card 2 -->
+
+<!-- Card 3 -->
+
+<!-- Card 4 -->
+
+</div>
+<!-- Sponsors Ticker / Combat Allies Banner -->
+
+</section>
+<!-- END: CabinetOfGlorySection -->
+<!-- BEGIN: ActiveRosterSection -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 py-16 border-t border-brand-cardBorder/60" id="rosters">
+<!-- Section Header with Game Tabs -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between mb-8 gap-4">
+<div>
+
+<h2 class="font-bold uppercase tracking-tight text-white text-5xl sm:text-6xl lg:text-7xl">OUR ROSTER <span class="text-brand-cyan">OF BGMI</span></h2>
+</div>
+<!-- Filter Tabs -->
+<div class="flex flex-wrap items-center gap-2 text-xs font-bold tracking-widest uppercase font-mono">
+
+
+
+
+</div>
+</div>
+<!-- 5 Player Roster Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+<!-- Player 1: Cypher -->
+<div class="bg-brand-cardDark border border-brand-cardBorder flex flex-col justify-between group hover:border-brand-cyan transition-all">
+<div class="p-2 border-b border-brand-cardBorder flex items-center justify-between text-[10px] font-mono text-slate-400">
+
+<span class="text-brand-cyan font-bold uppercase">happy</span>
+</div>
+<div class="relative h-56 overflow-hidden bg-black/40">
+<img alt="Cypher" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="./05.jpeg">
+
+</div>
+<div class="p-3">
+<div class="flex items-center justify-between">
+<h5 class="font-bold text-white tracking-wide text-base">HAPPY AKA HIMANSHU</h5>
+
+</div>
+<p class="text-[10px] text-white">HIMANSHU KUMAR</p>
+<div class="mt-3 pt-3 border-t border-brand-cardBorder/60 flex items-center gap-2">
+<a href="https://www.instagram.com/its_happybabuyt?stkn=dzFnNzhsdGo2djI=" target="_blank" class="flex-1 bg-brand-cardBorder/50 hover:bg-brand-cyan hover:text-black text-white py-1.5 rounded text-[10px] font-bold font-mono text-center transition-colors">INSTAGRAM</a>
+<a href="https://youtube.com/@happybabuyt?si=AWoJ1aMntvSjuCre" target="_blank" class="flex-1 bg-brand-cardBorder/50 hover:bg-brand-cyan hover:text-black text-white py-1.5 rounded text-[10px] font-bold font-mono text-center transition-colors">YOUTUBE</a>
+</div>
+</div>
+<div class="p-2 border-t border-brand-cardBorder/50 flex justify-between items-center text-[10px] text-white font-bold font-mono"><span class="">KNOW MORE</span><svg class="w-3.5 h-3.5 text-white stroke-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+</div>
+<!-- Player 2: Vexx -->
+<div class="bg-brand-cardDark border border-brand-cardBorder flex flex-col justify-between group hover:border-brand-cyan transition-all">
+<div class="p-2 border-b border-brand-cardBorder flex items-center justify-between text-[10px] font-mono text-slate-400">
+
+<span class="text-rose-400 font-bold uppercase">groot</span>
+</div>
+<div class="relative h-56 overflow-hidden bg-black/40">
+<img alt="Vexx" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="./02.jpeg">
+
+</div>
+<div class="p-3">
+<div class="flex items-center justify-between">
+<h5 class="font-bold text-white tracking-wide text-base">GROOT AKA SAURABH</h5>
+
+</div>
+<p class="text-[10px] text-white">SAURABH KRISHNA</p>
+<div class="mt-3 pt-3 border-t border-brand-cardBorder/60 flex items-center gap-2">
+<a href="https://www.instagram.com/ig.groot04?stkn=MWxqOXgwcnoxYTQwZQ==" target="_blank" class="flex-1 bg-brand-cardBorder/50 hover:bg-brand-cyan hover:text-black text-white py-1.5 rounded text-[10px] font-bold font-mono text-center transition-colors">INSTAGRAM</a>
+<a href="#" class="flex-1 bg-brand-cardBorder/50 hover:bg-brand-cyan hover:text-black text-white py-1.5 rounded text-[10px] font-bold font-mono text-center transition-colors">YOUTUBE</a>
+</div>
+</div>
+<div class="p-2 border-t border-brand-cardBorder/50 flex justify-between items-center text-[10px] text-white font-bold font-mono"><span class="text-white font-bold">KNOW MORE</span><svg class="w-3.5 h-3.5 text-white stroke-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+</div>
+<!-- Player 3: Nova -->
+<div class="bg-brand-cardDark border border-brand-cardBorder flex flex-col justify-between group hover:border-brand-cyan transition-all">
+<div class="p-2 border-b border-brand-cardBorder flex items-center justify-between text-[10px] font-mono text-slate-400">
+
+<span class="text-indigo-400 font-bold uppercase">ghost</span>
+</div>
+<div class="relative h-56 overflow-hidden bg-black/40">
+<img alt="Nova" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" src="./03.jpeg">
+
+</div>
+<div class="p-3">
+<div class="flex items-center justify-between">
+<h5 class="font-bold text-white tracking-wide text-base">GHOST AKA PIYUSH</h5>
+
+</div>
+<p class="text-[10px] text-white">PIYUSH KESHRI</p>
+<div class="mt-3 pt-3 border-t border-brand-cardBorder/60 flex items-center gap-2">
+<a href="https://www.instagram.com/empire.ghost18?stkn=ZjVlMmZ0MjRyaGRn" target="_blank" class="flex-1 bg-brand-cardBorder/50 hover:bg-brand-cyan hover:text-black text-white py-1.5 rounded text-[10px] font-bold font-mono text-center transition-colors">INSTAGRAM</a>
+<a href="#" class="flex-1 bg-brand-cardBorder/50 hover:bg-brand-cyan hover:text-black text-white py-1.5 rounded text-[10px] font-bold font-mono text-center transition-colors">YOUTUBE</a>
+</div>
+</div>
+<div class="p-2 border-t border-brand-cardBorder/50 flex justify-between items-center text-[10px] text-white font-bold font-mono"><span class="text-white font-bold">KNOW MORE</span><svg class="w-3.5 h-3.5 text-white stroke-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+</div>
+<!-- Player 4: Kairo -->
+<div class="bg-brand-cardDark border border-brand-cardBorder flex flex-col justify-between group hover:border-brand-cyan transition-all">
+<div class="p-2 border-b border-brand-cardBorder flex items-center justify-between text-[10px] font-mono text-slate-400">
+
+<span class="text-amber-400 font-bold uppercase">revolt</span>
+</div>
+<div class="relative h-56 overflow-hidden bg-black/40">
+<img alt="Kairo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="./01.jpeg">
+
+</div>
+<div class="p-3">
+<div class="flex items-center justify-between">
+<h5 class="font-bold text-white tracking-wide text-base">REVOLT AKA ABHIJEET</h5>
+
+</div>
+<p class="text-[10px] text-brand-subtext"><font color="#ffffff"><span style="caret-color: rgb(255, 255, 255);" class="">ABHIJEET&nbsp;</span></font></p>
+<div class="mt-3 pt-3 border-t border-brand-cardBorder/60 flex items-center gap-2">
+<a href="https://www.instagram.com/abhiijeett._?stkn=aXE4MHVwNWZrYW4=" target="_blank" class="flex-1 bg-brand-cardBorder/50 hover:bg-brand-cyan hover:text-black text-white py-1.5 rounded text-[10px] font-bold font-mono text-center transition-colors">INSTAGRAM</a>
+<a href="#" class="flex-1 bg-brand-cardBorder/50 hover:bg-brand-cyan hover:text-black text-white py-1.5 rounded text-[10px] font-bold font-mono text-center transition-colors">YOUTUBE</a>
+</div>
+</div>
+<div class="p-2 border-t border-brand-cardBorder/50 flex justify-between items-center text-[10px] text-white font-bold font-mono"><span class="text-white font-bold">KNOW MORE</span><svg class="w-3.5 h-3.5 text-white stroke-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+</div>
+<!-- Player 5: Blitz -->
+<div class="bg-brand-cardDark border border-brand-cardBorder flex flex-col justify-between group hover:border-brand-cyan transition-all">
+<div class="p-2 border-b border-brand-cardBorder flex items-center justify-between text-[10px] font-mono text-slate-400">
+
+<span class="text-emerald-400 font-bold uppercase">arthur v6</span>
+</div>
+<div class="relative h-56 overflow-hidden bg-black/40">
+<img alt="Blitz" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="./04.jpeg">
+
+</div>
+<div class="p-3">
+<div class="flex items-center justify-between">
+<h5 class="font-bold text-white tracking-wide text-base">ARTHUR V6 AKA JUNAID</h5>
+
+</div>
+<p class="text-[10px] text-brand-subtext"><font color="#ffffff"><span style="caret-color: rgb(255, 255, 255);" class="">JUNAID&nbsp;</span></font></p>
+<div class="mt-3 pt-3 border-t border-brand-cardBorder/60 flex items-center gap-2">
+<a href="https://www.instagram.com/ig_.arthur._?stkn=bWRhb3pqenF4b3Fs" target="_blank" class="flex-1 bg-brand-cardBorder/50 hover:bg-brand-cyan hover:text-black text-white py-1.5 rounded text-[10px] font-bold font-mono text-center transition-colors">INSTAGRAM</a>
+<a href="https://m.youtube.com/%40junaid04_04-r1c?fbclid=PAb21jcAUWsxhwZG9mAmV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABpymQRkk9UcKGJp8KzJRwxwLwJMvtVyVUkESbbRHl_ghFE-Lp8nTyu-Aknbda_aem_DlAOIXybAf1r6Pqhm1Uoig" target="_blank" class="flex-1 bg-brand-cardBorder/50 hover:bg-brand-cyan hover:text-black text-white py-1.5 rounded text-[10px] font-bold font-mono text-center transition-colors">YOUTUBE</a>
+</div>
+</div>
+<div class="p-2 border-t border-brand-cardBorder/50 flex justify-between items-center text-[10px] text-white font-bold font-mono"><span class="text-white font-bold">KNOW MORE</span><svg class="w-3.5 h-3.5 text-white stroke-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"></path></svg></div>
+</div>
+</div>
+</section>
+<!-- END: ActiveRosterSection -->
+<!-- BEGIN: TournamentsAndStreamHubSection -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 py-16 border-t border-brand-cardBorder/60" id="achievements">
+<!-- Section Header -->
+<div class="flex items-center justify-between mb-8">
+<div>
+
+<h2 class="text-3xl sm:text-4xl font-bold uppercase tracking-tight text-white">latest&nbsp;<span class="text-brand-cyan">Achievements</span></h2>
+</div>
+<div class="flex items-center gap-4">
+
+
+</div>
+</div>
+<!-- Main Tournaments Grid -->
+<div class="mt-8">
+  <div class="max-w-4xl mx-auto border border-brand-cardBorder/50 rounded overflow-hidden bg-brand-cardDark">
+    <img src="./achievement.png" alt="Latest Achievement" class="w-full h-auto object-contain">
+  </div>
+</div>
+</section><section class="max-w-7xl mx-auto px-6 lg:px-12 py-16 border-t border-brand-cardBorder/60" id="partners">
+  <div class="flex items-center justify-between mb-8">
+    <div>
+      <h2 class="text-3xl sm:text-4xl font-bold uppercase tracking-tight text-white">our <span class="text-brand-cyan">PARTNERS</span></h2>
+    </div>
+  </div>
+  <div class="py-12 flex flex-col items-center justify-center text-center bg-brand-cardDark/40 border border-brand-cardBorder/50 rounded p-8"><h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-wider uppercase text-white animate-pulse font-condensed" style="text-shadow: rgba(0, 245, 212, 0.4) 0px 0px 20px, rgba(0, 245, 212, 0.2) 0px 0px 40px;">COMING SOON</h1><p class="mt-3 text-xs font-mono tracking-widest text-brand-cyan uppercase">PARTNERSHIP ANNOUNCEMENTS INCOMING // STAY TUNED</p></div>
+</section>
+<!-- END: TournamentsAndStreamHubSection -->
+<!-- BEGIN: DiscordCommunityBanner -->
+<section class="max-w-7xl mx-auto px-6 lg:px-12 py-10">
+
+</section>
+<!-- END: DiscordCommunityBanner -->
+</main>
+<!-- BEGIN: MainFooter -->
+<footer class="border-t border-brand-cardBorder bg-[#05070B] text-slate-400 font-mono text-xs relative overflow-hidden">
+  <!-- Decorative background effects -->
+  <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPjxyZWN0IHdpZHRoPSI0IiBoZWlnaHQ9IjQiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-20 pointer-events-none"></div>
+  <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-cyan to-transparent opacity-50"></div>
+
+  <!-- Top Footer Bar -->
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 py-16 grid grid-cols-1 md:grid-cols-12 gap-12 relative z-10">
+    <!-- Brand Info -->
+    <div class="md:col-span-4 space-y-4">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-12 h-12 flex items-center justify-center overflow-hidden">
+          <img alt="Empire Esports Logo" class="h-full w-auto object-contain" src="./logo.png">
+        </div>
+        <h2 class="text-3xl font-bold text-white tracking-widest font-condensed uppercase">EMPIRE ESPORTS</h2>
+      </div>
+      <p class="text-xs text-brand-subtext leading-relaxed max-w-sm">
+        Forged in elite combat rings, disciplined in high-stakes arenas. Empire Esports represents the pinnacle of competitive gaming. Zero tolerance for defeat.
+      </p>
+
+    </div>
+    
+    <!-- Quick Links -->
+    <div class="md:col-span-2 space-y-4 md:ml-auto">
+      <h3 class="text-white font-condensed font-bold text-lg uppercase tracking-wider">Protocol</h3>
+      <ul class="space-y-3">
+        <li><a href="#rosters" class="hover:text-brand-cyan transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-brand-cyan block"></span> Rosters</a></li>
+        <li><a href="#achievements" class="hover:text-brand-cyan transition-colors flex items-center gap-2"><span class="w-1 h-1 bg-brand-cyan block"></span> Achievements</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Us -->
+    <div class="md:col-span-6 space-y-4 md:ml-auto w-full max-w-sm">
+      <h3 class="text-white font-condensed font-bold text-lg uppercase tracking-wider">Contact Us</h3>
+      <p class="text-xs text-brand-subtext mb-4">Reach out to high command. Direct inquiries only.</p>
+      <ul class="space-y-4 text-slate-300">
+        <li class="flex items-start gap-3">
+          <svg class="w-4 h-4 text-brand-cyan shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          <a href="mailto:work.empireesports@gmail.com" class="hover:text-brand-cyan transition-colors">work.empireesports@gmail.com</a>
+        </li>
+        <li class="flex items-start gap-3">
+          <svg class="w-4 h-4 text-brand-cyan shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          <a href="https://www.instagram.com/empire_esports.in" target="_blank" class="hover:text-brand-cyan transition-colors">@empire_esports.in</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Copyright & Build Protocol -->
+  <div class="bg-[#030508] py-5 border-t border-brand-cardBorder/40 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between text-[10px] text-slate-500 gap-4">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+        <span>SYSTEM ONLINE // ALL REGIONS OPERATIONAL</span>
+      </div>
+      <p class="uppercase tracking-widest font-bold">© 2026 EMPIRE ESPORTS CORP. DOMINATE THE GRID.</p>
+    </div>
+  </div>
+</footer>
+<!-- END: MainFooter -->
+<script>
+  (function() {
+    const canvas = document.getElementById('scroll-video-canvas');
+    const context = canvas.getContext('2d');
+    const frameCount = 300;
+    const currentFrame = index => (
+      `./video_frames_30fps/frame_${(index + 1).toString().padStart(6, '0')}.jpg`
+    );
+    const images = [];
+    for (let i = 0; i < frameCount; i++) {
+      const img = new Image();
+      img.src = currentFrame(i);
+      images.push(img);
+    }
+    images[0].onload = function() {
+      canvas.width = images[0].width;
+      canvas.height = images[0].height;
+      context.drawImage(images[0], 0, 0);
+    };
+    const updateImage = index => {
+      if (images[index] && images[index].complete) {
+        if (canvas.width !== images[index].width || canvas.height !== images[index].height) {
+          canvas.width = images[index].width;
+          canvas.height = images[index].height;
+        }
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(images[index], 0, 0);
+      }
+    };
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
+      if (maxScrollTop <= 0) return;
+      const scrollFraction = scrollTop / maxScrollTop;
+      const frameIndex = Math.min(
+        frameCount - 1,
+        Math.floor(scrollFraction * frameCount)
+      );
+      requestAnimationFrame(() => updateImage(frameIndex));
+    });
+  })();
+</script>
+<script>
+  // Force autoplay for promo video on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    const promoVideo = document.querySelector('video');
+    if (promoVideo) {
+      promoVideo.muted = true;
+      promoVideo.play().catch(function() {
+        // If autoplay still blocked, retry on first user interaction
+        document.addEventListener('click', function() {
+          promoVideo.play();
+        }, { once: true });
+      });
+    }
+  });
+</script>
+</body>
+</html>
