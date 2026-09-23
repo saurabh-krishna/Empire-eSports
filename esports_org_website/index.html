@@ -45,20 +45,21 @@
       right: 0;
       bottom: 0;
       width: 100%;
-      height: 100%;
+      height: 100vh; /* Fallback for older browsers */
       height: 100dvh; /* Dynamic viewport height for mobile */
       z-index: 0;
       pointer-events: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      overflow: hidden;
       transform: translateZ(0); /* Hardware acceleration for smooth mobile scrolling */
       will-change: transform;
     }
     .scroll-canvas-container canvas {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
+      display: block;
+      width: 100%;
+      height: 100vh; /* Fallback */
+      height: 100dvh;
+      object-fit: cover;
+      object-position: center center;
       opacity: 0.35;
     }
     /* Subtle tactical grid background pattern */
@@ -151,9 +152,9 @@
 <!-- END: HeroSection -->
 
 <!-- BEGIN: Promo Video Section -->
-<section class="w-full py-12 bg-[#070A0F]">
-  <div class="w-full overflow-hidden bg-black border-y border-brand-cardBorder/50">
-    <video class="w-full h-full max-h-[70vh] object-cover bg-black" muted autoplay loop playsinline webkit-playsinline preload="auto">
+<section class="w-full bg-[#070A0F]">
+  <div class="w-full overflow-hidden bg-black border-y border-brand-cardBorder/50" style="height: 70vh; height: 70dvh;">
+    <video class="w-full h-full object-cover object-center bg-black" muted autoplay loop playsinline webkit-playsinline preload="auto">
       <source src="./promo_no_audio.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
@@ -336,9 +337,15 @@
 </div>
 </div>
 <!-- Main Tournaments Grid -->
-<div class="mt-8">
-  <div class="max-w-4xl mx-auto border border-brand-cardBorder/50 rounded overflow-hidden bg-brand-cardDark">
-    <img src="./achievement.png" alt="Latest Achievement" class="w-full h-auto object-contain">
+<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+  <div class="border border-brand-cardBorder/50 rounded overflow-hidden bg-brand-cardDark flex items-center justify-center">
+    <img src="./WhatsApp%20Image%202026-09-19%20at%2020.42.38.jpeg" alt="Achievement 1" class="w-full h-auto object-contain">
+  </div>
+  <div class="border border-brand-cardBorder/50 rounded overflow-hidden bg-brand-cardDark flex items-center justify-center">
+    <img src="./WhatsApp%20Image%202026-09-19%20at%2020.02.50.jpeg" alt="Achievement 2" class="w-full h-auto object-contain">
+  </div>
+  <div class="border border-brand-cardBorder/50 rounded overflow-hidden bg-brand-cardDark flex items-center justify-center">
+    <img src="./achievement.png" alt="Achievement 3" class="w-full h-auto object-contain">
   </div>
 </div>
 </section><section class="max-w-7xl mx-auto px-6 lg:px-12 py-16 border-t border-brand-cardBorder/60" id="partners">
@@ -430,21 +437,48 @@
       img.src = currentFrame(i);
       images.push(img);
     }
+
+    // Size the canvas to match the viewport (cover-fit requires canvas = viewport size)
+    function resizeCanvas() {
+      const dpr = window.devicePixelRatio || 1;
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      canvas.width = vw * dpr;
+      canvas.height = vh * dpr;
+      canvas.style.width = vw + 'px';
+      canvas.style.height = vh + 'px';
+      context.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    // Draw image with cover-fit: scale to fill canvas, crop overflow, center content
+    function drawCover(img) {
+      if (!img || !img.complete || !img.naturalWidth) return;
+      const cw = window.innerWidth;
+      const ch = window.innerHeight;
+      const iw = img.naturalWidth;
+      const ih = img.naturalHeight;
+      const scale = Math.max(cw / iw, ch / ih);
+      const sw = iw * scale;
+      const sh = ih * scale;
+      const dx = (cw - sw) / 2;
+      const dy = (ch - sh) / 2;
+      context.clearRect(0, 0, cw, ch);
+      context.drawImage(img, dx, dy, sw, sh);
+    }
+
     images[0].onload = function() {
-      canvas.width = images[0].width;
-      canvas.height = images[0].height;
-      context.drawImage(images[0], 0, 0);
+      resizeCanvas();
+      drawCover(images[0]);
     };
+
     const updateImage = index => {
       if (images[index] && images[index].complete) {
-        if (canvas.width !== images[index].width || canvas.height !== images[index].height) {
-          canvas.width = images[index].width;
-          canvas.height = images[index].height;
-        }
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        context.drawImage(images[index], 0, 0);
+        drawCover(images[index]);
       }
     };
+
     window.addEventListener('scroll', () => {
       const scrollTop = document.documentElement.scrollTop;
       const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
